@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link rel = "stylesheet" href={{ url_for('static', filename='css/result.css') }} />
+    
+    <title>Satellite App Result</title>
+    <link rel="icon" type="image/x-icon" href="static\assets\img\planet.png" />
+<!--
+
+Comparto TemplateMo
+
+https://templatemo.com/tm-544-comparto
+
+-->
+</head>
+
+<body>
+    <!-- Back to top button -->
+    <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" ><img src="static/assets/img/satellite.png" /></a> -->
+        <div class="tm-site-header tm-mb-1">
+
+
+
+            <div class="tm-site-name-container tm-bg-color-1">
+            
+            
+            
+            <form action="{{ url_for('index') }}" style="margin-left: -250px; margin-top: 50px; margin-bottom: 150px;" >
+                <button type="submit"  class="tm-btn tm-btn-1 tm-link-to-services">Home</button>
+            </form> 
+
+            <!-- <button onclick="goBack()" style="margin-left: 10px; margin-bottom: 150px;"  class="tm-btn tm-btn-1 tm-link-to-services">Home</button>
+            <script>
+                function goBack() {
+                window.history.back();
+                }
+            </script> -->
+
+                <h1 class="tm-text-white" style ="margin-left: 50px; font-size:35px;">Digital Property Damage Assessment</h1>
+            </div>
+           <!--  <div class="tm-nav-container tm-bg-color-8">
+                <nav class="tm-nav" id="tm-nav">
+                    
+                </nav>
+            </div> -->
+        </div>
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                    <h2 align = "center" class="tm-bg-color-6 tm-mb-2 tm-title-color">Pre-Event Image</h2>
+                    <img src="{{url_for('static' , filename = "pre_image.png")}}" alt="About image" class="tm-img-responsive">
+                </div>
+                <div class="tm-section-1-l">
+                    <h2 align = "center" class="tm-bg-color-6 tm-mb-2 tm-title-color">Post-Event Image</h2>
+                    <img src="{{url_for('static' , filename = "post_image.png")}}" alt="About image" class="tm-img-responsive">
+                </div>
+               
+         </section> 
+          <section id="contact" class="tm-bg-color-1 tm-mb-3">      
+                <div align = "center">
+                	<br>
+                    <h2 class="tm-text-white" align = "center">Input Images</h2>
+                    <br>
+                    
+                    <p>You can see the satellite images taken before and after the event above.</p>
+                    <p>We use state-of-the-art semantic segmentation models to identify the regions which had buildings from the pre-event image. </p>
+                    <p>Our model then adds color-labels on top of each of these buildings to signify the extent to which these structures are damaged</p>
+                    <p>You can find the color-codes and the labeled image below.</p>
+                    
+                    <a href="#services" class="tm-btn tm-btn-1 tm-link-to-services">See Results</a>
+                </div>
+            
+        </section>
+        <section class="tm-mb-1 tm-row tm-services-row" id="services">
+            <div class="tm-section-2-l">
+                <article class="tm-bg-color-white tm-box-pad tm-mb-1">
+                    <h2 class="tm-bg-color-6 tm-mb-2">Damage-Labelled Image</h2>
+                    <p>On the right, you can see the labelled image output from our model</p>
+                    
+                </article>
+                <div class="tm-bg-color-6 tm-em-box" style="margin-left: 40px; margin-right:40px">
+                    <p class="tm-text-color-2">You can find the meaning of different color labels listed below. We have used four labels, i.e. "No Damage", "Minor Damage", "Major Damage" and "Destroyed".</p>
+                    
+                    <ul class="tm-text-color-2" style="line-height: 20px"> 
+                        <!-- /*color:red;font-size:40px; -->
+					  <li style="font-size: 12px; font-family: Montserrat, sans-serif; font-style:bold;"> <span style="background-color: #2ECC71; color:#2ECC71;">Gree</span>  - No Damage</li>
+					  <li style="font-size: 12px; font-family: Montserrat, sans-serif;font-style:bold;"> <span style="background-color: #3498DB; color:#3498DB;">Gree</span> - Minor Damage</li>
+					  <li style="font-size: 12px; font-family: Montserrat, sans-serif;font-style:bold;"><span style="background-color: #EB984E; color:#EB984E;">Gree</span> - Major Damage</li>
+					  <li style="font-size: 12px; font-family: Montserrat, sans-serif;font-style:bold;"><span style="background-color: #EC7063; color:#EC7063;">Gree</span> - Destroyed</li>
+					</ul>
+                </div>
+            </div>
+            <div class="tm-section-2-r">
+                <img src="{{url_for('static' , filename = "masked_image.png")}}" alt="Services image" class="tm-img-responsive">
+            </div>
+        </section>
+        
+        <section id="contact" class="tm-bg-color-1 tm-mb-3" style="margin-left: 0px; margin-right:0px">
+            <h2 class="tm-text-white tm-contact-title">Contact Us</h2>
+            <div class="tm-bg-color-white tm-contact-main">
+
+                <div class="contact-form-outer">
+                    <form id="contact-form" action="" method="POST" class="tm-bg-color-6 tm-contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required="" />
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" name="message" class="form-control" placeholder="Message..."
+                                required=""></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="ml-auto tm-btn tm-btn-3">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="contact-info-outer">
+                    <div class="tm-bg-color-6 contact-info">
+                        <p>Please feel free to contact us if you have any questions or suggestions.</p>
+                        <p>We are looking forward to hearing from you.</p>
+              
+                        <p>Email: <a href="mailto:ashwanirjn@gmail.com">ashwanirjn@gmail.com</a></p>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <footer class="text-center tm-mb-1">
+            <p>Copyright &copy; 2020 </a></p>
+        </footer>
+    </div> <!-- .container -->
+    <script src="static/js/jquery.min.js"></script> <!-- https://jquery.com/download/ -->
+    <script src="static/js/imagesloaded.pkgd.min.js"></script> <!-- https://imagesloaded.desandro.com/ -->
+    <script src="static/js/isotope.pkgd.min.js"></script> <!-- https://isotope.metafizzy.co/ -->
+    <script src="static/js/jquery.singlePageNav.min.js"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
+    <script>
+
+        // Scroll to Top button
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        // DOM is ready
+        $(function () {
+            // Single Page Nav
+            $('#tm-nav').singlePageNav({ speed: 600 });
+
+            // Smooth Scroll (https://css-tricks.com/snippets/jquery/smooth-scrolling/)
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 600, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+
+            /* Isotope Gallery */
+
+            // init isotope
+            var $gallery = $(".tm-gallery").isotope({
+                itemSelector: ".tm-gallery-item",
+                layoutMode: "fitRows"
+            });
+            // layout Isotope after each image loads
+            $gallery.imagesLoaded().progress(function () {
+                $gallery.isotope("layout");
+            });
+
+            $(".filters-button-group").on("click", "a", function () {
+                var filterValue = $(this).attr("data-filter");
+                $gallery.isotope({ filter: filterValue });
+            });
+
+            $(".tabgroup > div").hide();
+            $(".tabgroup > div:first-of-type").show();
+            $(".tabs a").click(function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+                    others = $this
+                        .closest("li")
+                        .siblings()
+                        .children("a"),
+                    target = $this.attr("href");
+                others.removeClass("active");
+                $this.addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
